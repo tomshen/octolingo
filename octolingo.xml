@@ -41,7 +41,7 @@
                 speechRecognition.lang = language;
               });
               gapi.hangout.data.onMessageReceived.add(function (event) {
-                Message.add(JSON.parse(event.message));
+                Message.save(JSON.parse(event.message));
                 a.refresh();
               });
               speechRecognition = initSpeechRecognition("en", function (event) {

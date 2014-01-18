@@ -74,9 +74,10 @@ MessageHandler.prototype._createLanguageButton = function(language) {
 MessageHandler.prototype._fillChat = function() {
   var $chatWindow = $("<div class='chat-window'></div>");
   var messages = Message.all();
+  var _this = this;
   for (var i = 0; i < messages.length; i++) {
     Message.translate(messages[i], this.selectedLanguage, function (message) {
-      $chatWindow.append(this._createMessage(message));
+      $chatWindow.append(_this._createMessage(message));
     });
   };
 

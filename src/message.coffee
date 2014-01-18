@@ -17,16 +17,15 @@ window.initSpeechRecognition = (language, onresult) ->
   return recognition
 
 class Message
-  @messages = []
-
   constructor: (@sender, @text, @language) ->
 
+  @messages = []
   save: () ->
-    @messages.push this
+    Message.messages.push this
     gapi.hangout.data.sendMessage JSON.stringify(this)
 
   @all: ()->
-    @messages
+    Message.messages
 
   @save: (message)->
     @messages.push message

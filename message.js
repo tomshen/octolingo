@@ -22,21 +22,21 @@
   };
 
   Message = (function() {
-    Message.messages = [];
-
     function Message(sender, text, language) {
       this.sender = sender;
       this.text = text;
       this.language = language;
     }
 
+    Message.messages = [];
+
     Message.prototype.save = function() {
-      this.messages.push(this);
+      Message.messages.push(this);
       return gapi.hangout.data.sendMessage(JSON.stringify(this));
     };
 
     Message.all = function() {
-      return this.messages;
+      return Message.messages;
     };
 
     Message.save = function(message) {

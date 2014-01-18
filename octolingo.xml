@@ -40,7 +40,7 @@
               var a = new MessageHandler("container", function (language) {
                 speechRecognition.lang = language;
               });
-              gapi.hangouts.data.onMessageReceived.add(function (event) {
+              gapi.hangout.data.onMessageReceived.add(function (event) {
                 Message.add(JSON.parse(event.message));
                 a.refresh();
               });

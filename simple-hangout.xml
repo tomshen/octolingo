@@ -52,21 +52,6 @@
 
      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
-      <script id="lib">
-        C = {};
-
-        C.LANGUAGES = {
-          "English":"en",
-          "French":"fr",
-          "Spanish":"es",
-          "Italian":"it",
-          "German":"de",
-          "Japanese":"ja",
-          "Korean":"ko",
-          "Chinese":"zh"
-        }
-        </script>
-
       <script id="Message-model">
 var Message, apiKey, initSpeechRecognition;
 
@@ -118,6 +103,17 @@ Message = (function() {
       </script>
 
       <script id="Message-handler" >
+        var C = {};
+        C.LANGUAGES = [
+          'de'
+          'en',
+          'es',
+          'fr',
+          'it',
+          'ja',
+          'ko',
+          'zh'
+        ]
         function MessageHandler(id, onLanguageChange) {
           this.messages = [];
           this.languages = [];
@@ -150,10 +146,10 @@ Message = (function() {
           }
 
           if(selected) {
-            var languageButton = languageButtonTemplate.replace("{{LANGUAGE}}", language.name).replace("{{SELECTED}}", " class='is-selected'");
+            var languageButton = languageButtonTemplate.replace("{{LANGUAGE}}", language).replace("{{SELECTED}}", " class='is-selected'");
           }
           else {
-            var languageButton = languageButtonTemplate.replace("{{LANGUAGE}}", language.name).replace("{{SELECTED}}", "");
+            var languageButton = languageButtonTemplate.replace("{{LANGUAGE}}", language).replace("{{SELECTED}}", "");
           }
 
           $languageButton = $(languageButton);
@@ -234,10 +230,10 @@ Message = (function() {
       <script id="app" type="text/javascript">
         var speechRecognition = null;
         var a = new MessageHandler("container", function (language) {
-          speechRecognition.lang = C.LANGUAGES[language];
+          speechRecognition.lang = language;
         });
         speechRecognition = initSpeechRecognition("en", function (event) {
-          a.newMessage(new Message(gapi.hangout.getLocalParticipant().person.name,
+          a.newMessage(new Message(gapi.hangout.getLocalParticipant().person.displayName,
             event.results[event.resultIndex][0].transcript, a.selectedLanguage))
         });
         speechRecognition.start();

@@ -8,7 +8,7 @@
     <![CDATA[
       <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
-     <link rel="stylesheet" type="text/css" href="style.css">
+     <link rel="stylesheet" type="text/css" href="http://www.tomshen.me/translatememaybe/style.css">
 
      <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
      
@@ -19,7 +19,8 @@
     </div>
 
 
-    <script type="text/javascript" src="MessageHandler.js"></script> 
+    <script type="text/javascript" src="http://www.tomshen.me/translatememaybe/MessageHandler.js">
+    </script> 
     ]]>
   </Content>
 </Module>

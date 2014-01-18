@@ -67,6 +67,56 @@
         }
         </script>
 
+      <script id="Message-model">
+var Message, apiKey, speechRecognition;
+
+apiKey = 'AIzaSyDUpThQIyJRlszXEnT2HvSMbPbObbcYNE4';
+
+initSpeechRecognition = function(language, onresult) {
+  var recognition;
+  recognition = new webkitSpeechRecognition();
+  recognition.continuous = true;
+  recognition.interminResults = false;
+  recognition.onstart = function() {
+    return recognition.lang = language;
+  };
+  recognition.onresult = onresult;
+  recognition.onerror = function(err) {
+    return console.error(err);
+  };
+  recognition.onend = function() {};
+  return recognition;
+};
+
+Message = (function() {
+  function Message(speaker, text, language) {
+    this.speaker = speaker;
+    this.text = text;
+    this.language = language;
+  }
+
+  Message.speak = function(message) {
+    var msg;
+    msg = new SpeechSynthesisUtterance();
+    msg.text = message.text;
+    msg.lang = message.language;
+    return window.speechSynthesis.speak(msg);
+  };
+
+  Message.translate = function(message, targetLanguage, callback) {
+    if (message.language === targetLanguage) {
+      return callback(message);
+    }
+    return $.getJSON("https://www.googleapis.com/language/translate/v2?key=" + apiKey + "&q=" + message.text + "&source=" + message.language + "&target=" + targetLanguage, function(data) {
+      return callback(new Message(message.speaker, data.data.translations[0].translatedText, targetLanguage));
+    });
+  };
+
+  return Message;
+
+})();
+      </script>
+
       <script id="Message-handler" >
         function MessageHandler(id, onLanguageChange) {
           this.messages = [];
@@ -83,7 +133,7 @@
         MessageHandler.prototype._createMessage = function(message) {
           var messageTemplate = "<div class='chat-element'><span class='chat-sender'>{{SENDER}}</span> <span class='chat-message'>{{CONTENT}}</span></div>";
 
-          var message = messageTemplate.replace("{{SENDER}}", message.sender).replace("{{CONTENT}}", message.content);
+          var message = messageTemplate.replace("{{SENDER}}", message.sender).replace("{{CONTENT}}", message.text);
 
           $message = $(message);
 
@@ -166,13 +216,8 @@
 
 
         //Create a new message and refresh the sender
-        MessageHandler.prototype.newMessage = function(sender, content) {
-          var newMessage = {
-            sender: sender,
-            content: content
-          }
-
-          this.messages.push(newMessage);
+        MessageHandler.prototype.newMessage = function(message) {
+          this.messages.push(newMessage.translate(this.selectedLanguage));
 
           this._fillMessageHandler();
         }
@@ -184,11 +229,16 @@
 
 
       <script id="app" type="text/javascript">
-
-        a = new MessageHandler("container", function(language) {console.log(a)});
+        var speechRecognition = null;
+        var a = new MessageHandler("container", function (language) {
+          speechRecognition.lang = C.LANGUAGES[language];
+        });
+        speechRecognition = initSpeechRecognition("en", function (event) {
+          a.newMessage(new Message(gapi.hangout.getLocalParticipant().person.name,
+            event.results[event.resultIndex][0].transcript, a.selectedLanguage))
+        });
 
         a.start();
-        a.newMessage("Tome", "hello world")
       </script>
     ]]>
   </Content>

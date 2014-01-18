@@ -2,7 +2,7 @@
 
 apiKey = 'AIzaSyDUpThQIyJRlszXEnT2HvSMbPbObbcYNE4'
 
-speechRecognition = (language, onresult) ->
+initSpeechRecognition = (language, onresult) ->
   recognition = new webkitSpeechRecognition()
   recognition.continuous = true
   recognition.interminResults = false
@@ -17,17 +17,18 @@ speechRecognition = (language, onresult) ->
 class Message
   constructor: (@speaker, @text, @language) ->
 
-  speak: () ->
+  @speak: (message) ->
     msg = new SpeechSynthesisUtterance()
-    msg.text = @text
-    msg.lang = @language
+    msg.text = message.text
+    msg.lang = message.language
     window.speechSynthesis.speak(msg)
 
-  translate: (targetLanguage, callback) ->
-    that = this
+  @translate: (message, targetLanguage, callback) ->
+    if message.language == targetLanguage
+      return callback(message)
     $.getJSON "https://www.googleapis.com/language/translate/v2?key=#{apiKey}
-&q=#{@text}&source=#{@language}&target=#{targetLanguage}",
-      (data) -> callback new Message that.speaker,
+&q=#{message.text}&source=#{message.language}&target=#{targetLanguage}",
+      (data) -> callback new Message message.speaker,
         data.data.translations[0].translatedText,
         targetLanguage
 

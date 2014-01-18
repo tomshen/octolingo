@@ -6,12 +6,12 @@
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
-      <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
+      <script src="https://plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-      <script src="//162.243.204.184/message.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+      <script src="https://162.243.204.184/message.js"></script>
 
-      <script src="//162.243.204.184/message-handler.js"></script>
+      <script src="https://162.243.204.184/message-handler.js"></script>
 
       <div id="container">
       </div>

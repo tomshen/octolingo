@@ -17,7 +17,19 @@ window.initSpeechRecognition = (language, onresult) ->
   return recognition
 
 class Message
-  constructor: (@speaker, @text, @language) ->
+  @messages = []
+
+  constructor: (@sender, @text, @language) ->
+
+  save: () ->
+    @messages.push this
+    gapi.hangout.data.sendMessage JSON.stringify(this)
+
+  @all: ()->
+    @messages
+
+  @save: (message)->
+    @messages.push message
 
   @speak: (message) ->
     msg = new SpeechSynthesisUtterance()
@@ -30,7 +42,7 @@ class Message
       return callback(message)
     $.getJSON "https://www.googleapis.com/language/translate/v2?key=#{apiKey}
 &q=#{message.text}&source=#{message.language}&target=#{targetLanguage}",
-      (data) -> callback new Message message.speaker,
+      (data) -> callback new Message message.sender,
         data.data.translations[0].translatedText,
         targetLanguage
 

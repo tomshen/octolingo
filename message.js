@@ -22,11 +22,26 @@
   };
 
   Message = (function() {
-    function Message(speaker, text, language) {
-      this.speaker = speaker;
+    Message.messages = [];
+
+    function Message(sender, text, language) {
+      this.sender = sender;
       this.text = text;
       this.language = language;
     }
+
+    Message.prototype.save = function() {
+      this.messages.push(this);
+      return gapi.hangout.data.sendMessage(JSON.stringify(this));
+    };
+
+    Message.all = function() {
+      return this.messages;
+    };
+
+    Message.save = function(message) {
+      return this.messages.push(message);
+    };
 
     Message.speak = function(message) {
       var msg;
@@ -41,7 +56,7 @@
         return callback(message);
       }
       return $.getJSON("https://www.googleapis.com/language/translate/v2?key=" + apiKey + "&q=" + message.text + "&source=" + message.language + "&target=" + targetLanguage, function(data) {
-        return callback(new Message(message.speaker, data.data.translations[0].translatedText, targetLanguage));
+        return callback(new Message(message.sender, data.data.translations[0].translatedText, targetLanguage));
       });
     };
 

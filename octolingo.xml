@@ -6,16 +6,18 @@
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
-	    <link type="text/css" rel="stylesheet" href="https://162.243.204.184/style.css">
+    <html>
+    <head>
+      <link type="text/css" rel="stylesheet" href="https://162.243.204.184/style.css">
       <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
       <script src="https://162.243.204.184/message.js"></script>
 
       <script src="https://162.243.204.184/message-handler.js"></script>
-
+    </head>
+    <body>
       <div id="container">
       </div>
-
 
       <script id="app" type="text/javascript">
         function init() {
@@ -36,6 +38,8 @@
         }
         gadgets.util.registerOnLoadHandler(init);
       </script>
+    </body>
+    </html>
     ]]>
   </Content>
 </Module>

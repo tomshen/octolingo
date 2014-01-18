@@ -1,0 +1,42 @@
+#container {
+	background-color: black;
+	color: white;
+	font-size: 18px;
+	font-family: "Open Sans", arial, helvetica;
+}
+
+.radio-select {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	padding: 18px;
+	text-align: center;
+}
+
+.radio-select li {
+	display: inline;
+	background-color: green;
+	margin: 0;
+	padding: 9px;
+	cursor: pointer;
+}
+
+.metadata-selector {
+	border-bottom: 1px solid white;
+	height: 150px;
+}
+
+.radio-select li.is-selected, .radio-select li:hover {
+	background-color: blue;
+}
+
+.chat-element {
+	padding: 9px;
+}
+
+.chat-sender {
+	text-transform: uppercase;
+	font-size: 0.61em;
+	letter-spacing: 0.2em;
+	opacity: 0.6;
+}

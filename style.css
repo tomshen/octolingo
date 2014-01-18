@@ -1,42 +1,80 @@
+
+body { 
+	background-color: rgb(24, 24, 24);
+}
+
 #container {
-	background-color: black;
-	color: white;
-	font-size: 18px;
-	font-family: "Open Sans", arial, helvetica;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	background-color: rgb(24, 24, 24);
+	color: rgb(204, 204 ,204);
+	font-size: 14px;
+	font-family: "Roboto", arial, sans-serif;
+	width: 300px;
 }
 
-.radio-select {
+#container:before {
+	content: "";
+	position: absolute;
+	top: 18px;
+	bottom: 18px;
+	border-left: 1px solid rgb(77, 77 ,77);
+}
+
+.language-selector {
+	position: absolute;
+	top: 18px;
+	left: 18px;
 	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	padding: 18px;
-	text-align: center;
+	z-index: 100;
 }
 
-.radio-select li {
-	display: inline;
-	background-color: green;
+.language-selector li {
+	display: inline-block;
+	color: rgb(179, 179 ,179);
+	background-color: rgb(51, 51, 51);
 	margin: 0;
 	padding: 9px;
 	cursor: pointer;
 }
 
-.metadata-selector {
-	border-bottom: 1px solid white;
-	height: 150px;
+.language-selector li:first-child {
+	border-top-left-radius:2px;
+	border-bottom-left-radius:2px;
+	padding-left: 13px;
+}
+.language-selector li:last-child {
+	border-top-right-radius:2px;
+	border-bottom-right-radius:2px;
+	padding-right: 13px;
 }
 
-.radio-select li.is-selected, .radio-select li:hover {
-	background-color: blue;
+.language-selector li.is-selected, .language-selector li:hover {
+	background-color: rgb(15, 175, 88);
+	color: white;
+}
+
+.chat-window {
+	position: absolute;
+	overflow-y: auto;
+	padding-bottom: 9px;
+	padding-left: 18px;
+	padding-top: 36px;
+	top: 27px;
+	bottom: 0;
+	z-index: 0;
 }
 
 .chat-element {
-	padding: 9px;
+	padding: 9px 0px;
 }
 
 .chat-sender {
 	text-transform: uppercase;
 	font-size: 0.61em;
 	letter-spacing: 0.2em;
-	opacity: 0.6;
+	color: rgb(128, 128 ,128);
+	font-weight: 700;
 }

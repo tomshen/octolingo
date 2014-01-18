@@ -39,12 +39,13 @@
               var speechRecognition = null;
               var a = new MessageHandler("container", function (language) {
                 speechRecognition.lang = language;
+                a.refresh();
               });
               gapi.hangout.data.onMessageReceived.add(function (event) {
                 var message = JSON.parse(event.message);
                 Message.save(message);
-                Message.translate(message, a.selectedLanguage, function (message) {
-                  Message.speak(message);
+                Message.translate(message, a.selectedLanguage, function (translatedMessage) {
+                  Message.speak(translatedMessage);
                 });
                 a.refresh();
               });

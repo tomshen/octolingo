@@ -68,7 +68,7 @@
         </script>
 
       <script id="Message-model">
-var Message, apiKey, speechRecognition;
+var Message, apiKey, initSpeechRecognition;
 
 apiKey = 'AIzaSyDUpThQIyJRlszXEnT2HvSMbPbObbcYNE4';
 

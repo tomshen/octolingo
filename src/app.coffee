@@ -1,31 +1,35 @@
 recognition = new webkitSpeechRecognition()
 
 recognition.continuous = true
-recognition.interminResults = true
+recognition.interminResults = false
 
 apiKey = 'AIzaSyDUpThQIyJRlszXEnT2HvSMbPbObbcYNE4'
 
-translate = (text, language) ->
-  $.get("https://www.googleapis.com/language/translate/v2?key=#{apiKey}&q=#{text}&target=#{language}",
-    (data) ->
-      translatedText = data.data.translations[0].translatedText
-      $('#output').text(translatedText)
-      msg = new SpeechSynthesisUtterance(translatedText)
-      msg.lang = 'fr-FR'
-      window.speechSynthesis.speak(msg)
-      )
+translateLangs = ['af,ar,az,be,bg,bn,bs,ca,ceb,cs,cy,da,de,el,en,eo,es,et,eu,fa,fi,fr,ga,gl,gu,hi,hmn,hr,ht,hu,id,is,it,iw,ja,jw,ka,km,kn,ko,la,lo,lt,lv,mk,mr,ms,mt,nl,no,pl,pt,ro,ru,sk,sl,sq,sr,sv,sw,ta,te,th,tl,tr,uk,ur,vi,yi,zh,zh-TW']
+
+translate = (text, sourceLang, targetLang, callback) ->
+  $.get(
+    "https://www.googleapis.com/language/translate/v2?key=#{apiKey}&q=#{text}&source=#{sourceLang}&target=#{targetLang}",
+    (data) -> callback(data.data.translations[0].translatedText, targetLang)
+  )
+
+speak = (text, language) ->
+  msg = new SpeechSynthesisUtterance()
+  msg.text = text
+  msg.lang = language
+  $('#output').append(text)
+  window.speechSynthesis.speak(msg)
 
 transcript = ''
 recognition.onstart = ()->
-  recognition.lang = 'English'
+  recognition.lang = 'en'
 recognition.onresult = (event)->
-  transcript=''
   for result in event.results
+    translate(result[0].transcript, recognition.lang, 'es', speak)
     transcript += result[0].transcript
   $('#input').text(transcript)
-  translate(transcript, 'fr')
-recognition.onerror = ()->
-  return
+recognition.onerror = (err)->
+  console.error(err)
 recognition.onend = ()->
   return
 

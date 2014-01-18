@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
   <ModulePrefs title="Octolingo">
     <Require feature="rpc"/>
     <Require feature="views"/>
@@ -6,10 +8,10 @@
     <![CDATA[
       <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
-     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-      <script src="message.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+      <script src="//162.243.204.184/message.js"></script>
 
-      <script src="message-handler.js"></script>
+      <script src="//162.243.204.184/message-handler.js"></script>
 
       <div id="container">
       </div>

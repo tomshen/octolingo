@@ -49,7 +49,8 @@
                   gapi.hangout.getLocalParticipant().person.displayName,
                   event.results[event.resultIndex][0].transcript, 
                   a.selectedLanguage
-                );
+                  );
+                  message.save()
                 a.refresh();
               });
 

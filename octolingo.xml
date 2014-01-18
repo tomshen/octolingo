@@ -6,6 +6,7 @@
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
+	    <link type="style/css" rel="stylresheet" href="https://162.243.204.184/style.css">
       <script src="https://plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>

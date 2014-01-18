@@ -2,7 +2,7 @@
 
 apiKey = 'AIzaSyDUpThQIyJRlszXEnT2HvSMbPbObbcYNE4'
 
-initSpeechRecognition = (language, onresult) ->
+window.initSpeechRecognition = (language, onresult) ->
   recognition = new webkitSpeechRecognition()
   recognition.continuous = true
   recognition.interminResults = false
@@ -33,3 +33,5 @@ class Message
       (data) -> callback new Message message.speaker,
         data.data.translations[0].translatedText,
         targetLanguage
+
+window.Message = Message

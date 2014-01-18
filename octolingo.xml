@@ -19,16 +19,18 @@
 
 
       <script id="app" type="text/javascript">
-        var speechRecognition = null;
-        var a = new MessageHandler("container", function (language) {
-          speechRecognition.lang = language;
-        });
-        speechRecognition = initSpeechRecognition("en", function (event) {
-          a.newMessage(new Message(JSON.stringify(gapi.hangout.getLocalParticipant().person),
-            event.results[event.resultIndex][0].transcript, a.selectedLanguage))
-        });
+        gapi.hangout.onApiReady.add(function(event) {
+          var speechRecognition = null;
+          var a = new MessageHandler("container", function (language) {
+            speechRecognition.lang = language;
+          });
+          speechRecognition = initSpeechRecognition("en", function (event) {
+            a.newMessage(new Message(JSON.stringify(gapi.hangout.getLocalParticipant().person),
+              event.results[event.resultIndex][0].transcript, a.selectedLanguage))
+          });
 
-        a.start();
+          a.start();
+        });
       </script>
     ]]>
   </Content>

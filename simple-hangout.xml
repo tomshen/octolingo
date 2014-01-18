@@ -217,7 +217,10 @@ Message = (function() {
 
         //Create a new message and refresh the sender
         MessageHandler.prototype.newMessage = function(message) {
-          this.messages.push(Message.translate(message, this.selectedLanguage));
+          var _this = this;
+          Message.translate(message, this.selectedLanguage, function (message) {
+            _this.messages.push(message);
+          });
 
           this._fillMessageHandler();
         }

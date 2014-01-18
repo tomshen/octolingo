@@ -105,7 +105,7 @@ Message = (function() {
       <script id="Message-handler" >
         var C = {};
         C.LANGUAGES = [
-          'de'
+          'de',
           'en',
           'es',
           'fr',
@@ -113,7 +113,7 @@ Message = (function() {
           'ja',
           'ko',
           'zh'
-        ]
+        ];
         function MessageHandler(id, onLanguageChange) {
           this.messages = [];
           this.languages = [];

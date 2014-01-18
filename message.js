@@ -16,7 +16,9 @@
     recognition.onerror = function(err) {
       return console.error(err);
     };
-    return recognition.onend = function() {};
+    recognition.onend = function() {};
+    recognition.start();
+    return recognition;
   };
 
   Message = (function() {
@@ -46,7 +48,5 @@
     return Message;
 
   })();
-
-  recognition.start();
 
 }).call(this);

@@ -26,7 +26,6 @@
           a.newMessage(new Message(gapi.hangout.getLocalParticipant().person.displayName,
             event.results[event.resultIndex][0].transcript, a.selectedLanguage))
         });
-        speechRecognition.start();
 
         a.start();
       </script>

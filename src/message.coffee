@@ -13,6 +13,8 @@ initSpeechRecognition = (language, onresult) ->
     console.error(err)
   recognition.onend = ()->
     return
+  recognition.start()
+  return recognition
 
 class Message
   constructor: (@speaker, @text, @language) ->
@@ -31,5 +33,3 @@ class Message
       (data) -> callback new Message message.speaker,
         data.data.translations[0].translatedText,
         targetLanguage
-
-recognition.start()

@@ -217,7 +217,7 @@ Message = (function() {
 
         //Create a new message and refresh the sender
         MessageHandler.prototype.newMessage = function(message) {
-          this.messages.push(message.translate(this.selectedLanguage));
+          this.messages.push(Message.translate(message, this.selectedLanguage));
 
           this._fillMessageHandler();
         }
@@ -237,6 +237,7 @@ Message = (function() {
           a.newMessage(new Message(gapi.hangout.getLocalParticipant().person.name,
             event.results[event.resultIndex][0].transcript, a.selectedLanguage))
         });
+        speechRecognition.start();
 
         a.start();
       </script>

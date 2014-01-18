@@ -41,7 +41,11 @@
                 speechRecognition.lang = language;
               });
               gapi.hangout.data.onMessageReceived.add(function (event) {
-                Message.save(JSON.parse(event.message));
+                var message = JSON.parse(event.message);
+                Message.save(message);
+                Message.translate(message, a.selectedLanguage, function (message) {
+                  Message.speak(message);
+                });
                 a.refresh();
               });
               speechRecognition = initSpeechRecognition("en", function (event) {
@@ -49,8 +53,8 @@
                   gapi.hangout.getLocalParticipant().person.displayName,
                   event.results[event.resultIndex][0].transcript, 
                   a.selectedLanguage
-                  );
-                  message.save()
+                );
+                message.save()
                 a.refresh();
               });
 

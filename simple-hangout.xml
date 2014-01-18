@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="Your App Name">
+  <ModulePrefs title="Translate Me Maybe">
     <Require feature="rpc"/>
     <Require feature="views"/>
   </ModulePrefs>
@@ -8,10 +8,18 @@
     <![CDATA[
       <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
 
-      <h1> This is a test of the google hangouts API </h1>
+     <link rel="stylesheet" type="text/css" href="style.css">
 
-      <!-- Your application code -->
+     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+     
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>   
 
+
+    <div id="container">
+    </div>
+
+
+    <script type="text/javascript" src="MessageHandler.js"></script> 
     ]]>
   </Content>
 </Module>

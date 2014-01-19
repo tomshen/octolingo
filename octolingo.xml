@@ -11,9 +11,9 @@
       <link type="text/css" rel="stylesheet" href="https://162.243.204.184/style.css">
       <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/0.7.10-1/bluebird.min.js"></script>
       <script src="https://162.243.204.184/message.js"></script>
-
-      <script src="https://162.243.204.184/message-handler.js"></script>
+      <script src="https://162.243.204.184/message-view.js"></script>
     </head>
     <body>
       <div class="title">

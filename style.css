@@ -11,15 +11,8 @@ body {
 	top: 0px;
 	bottom: 0px;
 	right: 0px;
+	font-family: "Roboto", arial, sans-serif;
 	width: 300px;
-}
-
-#container:before {
-	content: "";
-	position: absolute;
-	top: 64px;
-	bottom: 18px;
-	border-left: 1px solid rgb(77, 77 ,77);
 }
 
 .title {
@@ -49,6 +42,10 @@ body {
 	top: 0;
 	right: 0;
 	bottom: 0;
+}
+
+.title .logo svg {
+	margin-top: -2px;
 }
 
 .title:hover {
@@ -106,12 +103,17 @@ body {
 	padding-left: 18px;
 	padding-top: 36px;
 	top: 72px;
+	right: 18px;`
 	bottom: 0;
 	z-index: 0;
 }
 
 .chat-element {
 	padding: 9px 0px;
+}
+
+.chat-element.is-loading .chat-message{
+	color: rgb(128, 128, 128);
 }
 
 .chat-sender {

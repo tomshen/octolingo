@@ -103,7 +103,8 @@ body {
 	padding-left: 18px;
 	padding-top: 36px;
 	top: 72px;
-	right: 18px;`
+	right: 18px;
+	left: 9px;
 	bottom: 0;
 	z-index: 0;
 }

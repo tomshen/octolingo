@@ -31,22 +31,25 @@ class MessageView
         viewRef.selectedLanguage = language
         viewRef.onLanguageChange(language)
 
-  _fillChat: () ->
-    $chatWindow = $('<div class="chat-window"></div>')
+  _fillChat: ->
+    viewRef = this
     messagePromises = Message.all().map (message) ->
       new Promise (resolve, reject) ->
-        Message.translate(message, @selectedLanguage, resolve)
-    Promise.all(messagePromises).then (results) ->
-      $chatWindow.append(results)
+        Message.translate(message, viewRef.selectedLanguage, resolve)
+    Promise.all(messagePromises)
 
   _fillLanguageSelector: () ->
     $languageSelector = $('<div class="language-selector"></div>')
-    $languageSelector.append(LANGUAGES.map @_createLanguageButton)
+    $languageSelector.append(LANGUAGES.map(@_createLanguageButton, this))
 
   refresh: () ->
-    $chat = @_fillChat
-    @$container.empty().append(@_fillLanguageSelector()).append($chat)
-    $chat.scrollTop(999999)
+    viewRef = this
+    @_fillChat().then (results) ->
+      $chat = $('<div class="chat-window"></div>').append(results.map(viewRef._createMessage))
+      viewRef.$container.empty().append(viewRef._fillLanguageSelector()).append($chat)
+      $chat.scrollTop(999999)
 
   start: () ->
-    refresh()
+    @refresh()
+
+window.MessageView = MessageView

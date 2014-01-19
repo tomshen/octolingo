@@ -33,37 +33,41 @@
     };
 
     MessageView.prototype._fillChat = function() {
-      var $chatWindow, messagePromises;
-      $chatWindow = $('<div class="chat-window"></div>');
+      var messagePromises, viewRef;
+      viewRef = this;
       messagePromises = Message.all().map(function(message) {
         return new Promise(function(resolve, reject) {
-          return Message.translate(message, this.selectedLanguage, resolve);
+          return Message.translate(message, viewRef.selectedLanguage, resolve);
         });
       });
-      return Promise.all(messagePromises).then(function(results) {
-        return $chatWindow.append(results);
-      });
+      return Promise.all(messagePromises);
     };
 
     MessageView.prototype._fillLanguageSelector = function() {
       var $languageSelector;
       $languageSelector = $('<div class="language-selector"></div>');
-      return $languageSelector.append(LANGUAGES.map(this._createLanguageButton));
+      return $languageSelector.append(LANGUAGES.map(this._createLanguageButton, this));
     };
 
     MessageView.prototype.refresh = function() {
-      var $chat;
-      $chat = this._fillChat;
-      this.$container.empty().append(this._fillLanguageSelector()).append($chat);
-      return $chat.scrollTop(999999);
+      var viewRef;
+      viewRef = this;
+      return this._fillChat().then(function(results) {
+        var $chat;
+        $chat = $('<div class="chat-window"></div>').append(results.map(viewRef._createMessage));
+        viewRef.$container.empty().append(viewRef._fillLanguageSelector()).append($chat);
+        return $chat.scrollTop(999999);
+      });
     };
 
     MessageView.prototype.start = function() {
-      return refresh();
+      return this.refresh();
     };
 
     return MessageView;
 
   })();
+
+  window.MessageView = MessageView;
 
 }).call(this);

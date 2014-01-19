@@ -1,0 +1,158 @@
+body { 
+	background-color: rgb(24, 24, 24);
+	font-family: "Roboto", arial, sans-serif;
+	color: rgb(204, 204, 204);
+	font-size: 16px;
+	width: 500px;
+	margin: auto;
+	padding-top: 100px;
+}
+
+.brand {
+	margin-bottom: 64px;
+}
+
+.logo {
+	background-color: rgb(15, 175, 88);
+	width: 250px;
+	height: 250px;
+	margin: auto;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+.app-name {
+	width: 214px;
+	border-bottom: 18px solid rgb(15, 175, 88);
+	border-left: 18px solid rgb(15, 175, 88);
+	border-right: 18px solid rgb(15, 175, 88);
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+
+	text-align: center;
+	margin: auto;
+	font-size: 32px;
+	font-weight: bold;
+	padding: 12px 0px;
+
+
+	-webkit-user-select: none;
+}
+
+p {
+	color:rgb(179, 179 ,179);
+	line-height: 1.45;
+}
+
+img {
+	width: 750;
+	margin-left: -125;
+	padding: 16px;
+}
+
+.screenshots-title {
+	padding: 1em;
+	text-align: center;	
+	font-style: italic;
+	color: rgb(102, 102, 102);
+}
+
+.title {
+	-webkit-user-select: none;
+	cursor: pointer;
+	position: absolute;
+	top: 18px;
+	left: 18px;
+	z-index: 100;
+	border: 2px solid rgba(51, 51, 51, 0);
+	border-radius: 2px;
+}
+
+.title .app-name {
+	color: rgb(102, 102, 102);
+	padding: 5px;
+	padding-right: 35px;
+}
+
+
+.title .logo {
+	background-color: rgb(51, 51, 51);
+	position: absolute;
+
+	border-top-right-radius:2px;
+	border-bottom-right-radius:2px;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.title:hover {
+	border: 2px solid rgb(15, 175, 88);
+}
+
+.title:hover .logo {
+	background-color: rgb(15, 175, 88);
+	border-top-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+
+.title:hover .app-name {
+	color: rgb(204, 204, 204);
+}
+
+.language-selector {
+	position: absolute;
+	top: 64px;
+	left: 18px;
+	list-style-type: none;
+	z-index: 100;
+}
+
+.language-selector li {
+	-webkit-user-select: none;
+	display: inline-block;
+	color: rgb(179, 179 ,179);
+	background-color: rgb(51, 51, 51);
+	margin: 0;
+	padding: 9px;
+	cursor: pointer;
+}
+
+.language-selector li:first-child {
+	border-top-left-radius:2px;
+	border-bottom-left-radius:2px;
+	padding-left: 13px;
+}
+.language-selector li:last-child {
+	border-top-right-radius:2px;
+	border-bottom-right-radius:2px;
+	padding-right: 13px;
+}
+
+.language-selector li.is-selected, .language-selector li:hover {
+	background-color: rgb(15, 175, 88);
+	color: white;
+}
+
+.chat-window {
+	position: absolute;
+	overflow-y: auto;
+	padding-bottom: 9px;
+	padding-left: 18px;
+	padding-top: 36px;
+	top: 72px;
+	bottom: 0;
+	z-index: 0;
+}
+
+.chat-element {
+	padding: 9px 0px;
+}
+
+.chat-sender {
+	text-transform: uppercase;
+	font-size: 0.61em;
+	letter-spacing: 0.2em;
+	color: rgb(128, 128 ,128);
+	font-weight: 700;
+}

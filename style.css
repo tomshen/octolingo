@@ -1,126 +1,126 @@
 
-body { 
-	background-color: rgb(24, 24, 24);
-	color: rgb(204, 204, 204);
-	font-size: 14px;
-	font-family: "Roboto", arial, sans-serif;
+body {
+  background-color: rgb(24, 24, 24);
+  color: rgb(204, 204, 204);
+  font-size: 14px;
+  font-family: "Roboto", arial, sans-serif;
 }
 
 #container {
-	position: absolute;
-	top: 0px;
-	bottom: 0px;
-	right: 0px;
-	font-family: "Roboto", arial, sans-serif;
-	width: 300px;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  font-family: "Roboto", arial, sans-serif;
+  width: 300px;
 }
 
 .title {
-	-webkit-user-select: none;
-	cursor: pointer;
-	position: absolute;
-	top: 18px;
-	left: 18px;
-	z-index: 100;
-	border: 2px solid rgba(51, 51, 51, 0);
-	border-radius: 2px;
+  -webkit-user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 100;
+  border: 2px solid rgba(51, 51, 51, 0);
+  border-radius: 2px;
 }
 
 .title .app-name {
-	color: rgb(102, 102, 102);
-	padding: 5px;
-	padding-right: 35px;
+  color: rgb(102, 102, 102);
+  padding: 5px;
+  padding-right: 35px;
 }
 
 
 .title .logo {
-	background-color: rgb(51, 51, 51);
-	position: absolute;
+  background-color: rgb(51, 51, 51);
+  position: absolute;
 
-	border-top-right-radius:2px;
-	border-bottom-right-radius:2px;
-	top: 0;
-	right: 0;
-	bottom: 0;
+  border-top-right-radius:2px;
+  border-bottom-right-radius:2px;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .title .logo svg {
-	margin-top: -2px;
+  margin-top: -2px;
 }
 
 .title:hover {
-	border: 2px solid rgb(15, 175, 88);
+  border: 2px solid rgb(15, 175, 88);
 }
 
 .title:hover .logo {
-	background-color: rgb(15, 175, 88);
-	border-top-right-radius:0px;
-	border-bottom-right-radius:0px;
+  background-color: rgb(15, 175, 88);
+  border-top-right-radius:0px;
+  border-bottom-right-radius:0px;
 }
 
 .title:hover .app-name {
-	color: rgb(204, 204, 204);
+  color: rgb(204, 204, 204);
 }
 
 .language-selector {
-	position: absolute;
-	top: 64px;
-	left: 18px;
-	list-style-type: none;
-	z-index: 100;
+  position: absolute;
+  top: 64px;
+  left: 18px;
+  list-style-type: none;
+  z-index: 100;
 }
 
 .language-selector li {
-	-webkit-user-select: none;
-	display: inline-block;
-	color: rgb(179, 179 ,179);
-	background-color: rgb(51, 51, 51);
-	margin: 0;
-	padding: 9px;
-	cursor: pointer;
+  -webkit-user-select: none;
+  display: inline-block;
+  color: rgb(179, 179 ,179);
+  background-color: rgb(51, 51, 51);
+  margin: 0;
+  padding: 9px;
+  cursor: pointer;
 }
 
 .language-selector li:first-child {
-	border-top-left-radius:2px;
-	border-bottom-left-radius:2px;
-	padding-left: 13px;
+  border-top-left-radius:2px;
+  border-bottom-left-radius:2px;
+  padding-left: 13px;
 }
 .language-selector li:last-child {
-	border-top-right-radius:2px;
-	border-bottom-right-radius:2px;
-	padding-right: 13px;
+  border-top-right-radius:2px;
+  border-bottom-right-radius:2px;
+  padding-right: 13px;
 }
 
 .language-selector li.is-selected, .language-selector li:hover {
-	background-color: rgb(15, 175, 88);
-	color: white;
+  background-color: rgb(15, 175, 88);
+  color: white;
 }
 
 .chat-window {
-	position: absolute;
-	overflow-y: auto;
-	padding-bottom: 9px;
-	padding-left: 18px;
-	padding-top: 36px;
-	top: 72px;
-	right: 18px;
-	left: 9px;
-	bottom: 0;
-	z-index: 0;
+  position: absolute;
+  overflow-y: auto;
+  padding-bottom: 9px;
+  padding-left: 18px;
+  padding-top: 36px;
+  top: 72px;
+  right: 18px;
+  left: 9px;
+  bottom: 0;
+  z-index: 0;
 }
 
 .chat-element {
-	padding: 9px 0px;
+  padding: 9px 0px;
 }
 
 .chat-element.is-loading .chat-message{
-	color: rgb(128, 128, 128);
+  color: rgb(128, 128, 128);
 }
 
 .chat-sender {
-	text-transform: uppercase;
-	font-size: 0.61em;
-	letter-spacing: 0.2em;
-	color: rgb(128, 128 ,128);
-	font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.61em;
+  letter-spacing: 0.2em;
+  color: rgb(128, 128 ,128);
+  font-weight: 700;
 }

@@ -37,7 +37,7 @@
           gapi.hangout.onApiReady.add(function(event) {
             if (event.isApiReady) {
               var speechRecognition = null;
-              var a = new MessageHandler("container", function (language) {
+              var a = new MessageView("container", function (language) {
                 speechRecognition.lang = language;
                 a.refresh();
               });

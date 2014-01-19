@@ -97,9 +97,11 @@ MessageHandler.prototype._fillLanguageSelector = function() {
 }
 
 MessageHandler.prototype._fillMessageHandler = function() {
+  var $chat = this._fillChat();
   this.$container.empty();
   this.$container.append(this._fillLanguageSelector());
-  this.$container.append(this._fillChat());
+  this.$container.append($chat);
+  $chat.scrollTop(999999);
 }
 
 //Start the message handler (fill it with content)

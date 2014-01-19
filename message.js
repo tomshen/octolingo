@@ -14,7 +14,8 @@
     };
     recognition.onresult = onresult;
     recognition.onerror = function(err) {
-      return console.error(err);
+      console.error(err);
+      return initSpeechRecognition(language, onresult);
     };
     recognition.onend = function() {};
     recognition.start();
@@ -48,6 +49,7 @@
       msg = new SpeechSynthesisUtterance();
       msg.text = message.text;
       msg.lang = message.language;
+      console.log("" + msg.sender + ": " + msg.text + " | " + (JSON.stringify(msg)));
       return window.speechSynthesis.speak(msg);
     };
 

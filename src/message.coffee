@@ -11,6 +11,7 @@ window.initSpeechRecognition = (language, onresult) ->
   recognition.onresult = onresult
   recognition.onerror = (err)->
     console.error(err)
+    initSpeechRecognition(language, onresult)
   recognition.onend = ()->
     return
   recognition.start()
@@ -34,6 +35,7 @@ class Message
     msg = new SpeechSynthesisUtterance()
     msg.text = message.text
     msg.lang = message.language
+    console.log("#{msg.sender}: #{msg.text} | #{JSON.stringify(msg)}")
     window.speechSynthesis.speak(msg)
 
   @translate: (message, targetLanguage, callback) ->

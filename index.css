@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(24, 24, 24);
+  color: rgb(204, 204, 204);
+  font-size: 14px;
+  font-family: "Roboto", arial, sans-serif;
+}
+
+.title {
+  -webkit-user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 100;
+  border: 2px solid rgba(51, 51, 51, 0);
+  border-radius: 2px;
+}
+
+.title .app-name {
+  color: rgb(102, 102, 102);
+  padding: 5px;
+  padding-right: 35px;
+}
+
+
+.title .logo {
+  background-color: rgb(51, 51, 51);
+  position: absolute;
+
+  border-top-right-radius:2px;
+  border-bottom-right-radius:2px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.title .logo svg {
+  margin-top: -2px;
+}
+
+.title:hover {
+  border: 2px solid rgb(15, 175, 88);
+}
+
+.title:hover .logo {
+  background-color: rgb(15, 175, 88);
+  border-top-right-radius:0px;
+  border-bottom-right-radius:0px;
+}
+
+.title:hover .app-name {
+  color: rgb(204, 204, 204);
+}
+
+
+.title {
+  width: 480px;
+  text-align: left;
+}
+
+.title .app-name {
+  font-size: 4rem;
+  padding-left: 1rem;
+}
+
+#container {
+  display: block;
+  margin: 0 auto;
+  font-family: "Roboto", arial, sans-serif;
+  width: 480px;
+  text-align: center;
+  height: 100%;
+}

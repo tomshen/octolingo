@@ -5,4 +5,4 @@ Octolingo
 
 It is peer to peer and language independent, so any number of members can chat with any number of members that speak any of the eight languages. Because it's integrated with Google Hangouts, a platform that people already use and trust, Octolingo is a convenient way to keep up with colleagues, research partners, and friends around the globe.
 
-Created by [Tom Shen](http://www.tomshen.me and [Taylor Poulos](http://www.nyan.cat/) at MHacks Winter 2014.
+Created by [Tom Shen](http://www.tomshen.me) and [Taylor Poulos](http://www.nyan.cat/) at MHacks Winter 2014.

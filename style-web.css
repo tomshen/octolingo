@@ -44,10 +44,21 @@ p {
 	line-height: 1.45;
 }
 
-img {
+img, .youtube-video {
 	width: 750;
 	margin-left: -125;
 	padding: 16px;
+}
+
+a {
+	color:rgb(179, 179 ,179);
+	font-style: italic;
+}
+a:hover {
+	color:rgb(200, 200 ,200);
+}
+a:active {
+	color:rgb(139, 139 ,139);
 }
 
 .screenshots-title {
